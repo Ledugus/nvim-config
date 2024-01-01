@@ -55,6 +55,7 @@ return {
 				ensure_installed = {
 					"black",
 					"pylint",
+					"selene",
 					"stylua",
 					"latexindent",
 				},
