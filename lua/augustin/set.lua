@@ -1,4 +1,4 @@
-vim.opt.guicursor = {'i:ver2'}
+vim.opt.guicursor = { "i:ver2" }
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -18,4 +18,3 @@ vim.opt.scrolloff = 5
 vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
-
