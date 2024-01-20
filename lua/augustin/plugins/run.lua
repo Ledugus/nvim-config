@@ -1,0 +1,3 @@
+return {
+	"arjunmahishi/flow.nvim",
+}
