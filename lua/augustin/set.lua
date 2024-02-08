@@ -18,3 +18,5 @@ vim.opt.scrolloff = 5
 vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
+
+vim.opt.clipboard = "unnamedplus"
