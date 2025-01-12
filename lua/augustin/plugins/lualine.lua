@@ -2,6 +2,21 @@ return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
+		-- function to show lsp clients (except GitHub Copilot)
+		local clients_lsp = function()
+			local clients = vim.lsp.get_clients()
+			if next(clients) == nil then
+				return ""
+			end
+
+			local c = {}
+			for _, client in pairs(clients) do
+				if client.name ~= "GitHub Copilot" then
+					table.insert(c, client.name)
+				end
+			end
+			return "\u{f085} " .. table.concat(c, "|")
+		end
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
@@ -23,7 +38,7 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics" },
+				lualine_b = { "branch", "diff", "diagnostics", clients_lsp },
 				lualine_c = { "filename" },
 				lualine_x = { "encoding", "fileformat", "filetype" },
 				lualine_y = { "progress" },
