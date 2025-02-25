@@ -76,6 +76,11 @@ return {
 						require("lspconfig")[server_name].setup({})
 					end,
 					-- Ajouter ici des fonctions nommées selon le LSP concerné
+					clangd = function()
+						require("lspconfig").clangd.setup({
+							cmd = { "clangd", "--fallback-style=webkit" },
+						})
+					end,
 					pyright = function()
 						require("lspconfig").pyright.setup({
 							settings = {
