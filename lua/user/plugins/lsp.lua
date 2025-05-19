@@ -99,6 +99,7 @@ return {
 					"black",
 					"stylua",
 					"prettier",
+					"typstyle",
 				},
 			})
 			local cmp = require("cmp")
