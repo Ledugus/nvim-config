@@ -1,3 +1,4 @@
+-- Navigation rapide entre buffers ("fenêtres")
 return {
 	"ThePrimeagen/harpoon",
 	dependencies = {

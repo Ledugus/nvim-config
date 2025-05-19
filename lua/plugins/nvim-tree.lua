@@ -1,3 +1,4 @@
+-- Explorateur de fichiers
 return {
 	"nvim-tree/nvim-tree.lua",
 	version = "*",
@@ -10,6 +11,7 @@ return {
 			git = {
 				enable = true,
 			},
+			-- Mettre à true pour ignorer les catégories suivantes :
 			filters = {
 				dotfiles = false,
 				git_ignored = false,

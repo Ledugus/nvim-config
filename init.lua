@@ -1,3 +1,3 @@
-require("augustin.remap")
-require("augustin.set")
-require("augustin.lazy")
+require("lua.remap")
+require("lua.set")
+require("lua.lazy")

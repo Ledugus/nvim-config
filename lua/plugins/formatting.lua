@@ -1,3 +1,4 @@
+-- Gestion des formateurs par langage
 return {
 	"stevearc/conform.nvim",
 	event = { "BufReadPre", "BufNewFile" },
