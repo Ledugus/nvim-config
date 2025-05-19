@@ -69,7 +69,7 @@ return {
 		config = function()
 			require("mason").setup({})
 			require("mason-lspconfig").setup({
-				ensure_installed = { "pyright", "texlab", "lua_ls", "clangd", "ts_ls", "svelte", "tinymist" },
+				ensure_installed = { "pyright", "lua_ls", "clangd", "ts_ls", "svelte", "tinymist" },
 				handlers = {
 					-- Handler par défaut
 					function(server_name)
@@ -98,8 +98,6 @@ return {
 				ensure_installed = {
 					"black",
 					"stylua",
-					"pylint",
-					"latexindent",
 					"prettier",
 				},
 			})

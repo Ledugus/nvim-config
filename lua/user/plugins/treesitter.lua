@@ -1,3 +1,4 @@
+-- Parser configuration for Neovim using nvim-treesitter
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",

@@ -1,5 +1,6 @@
+-- Block cursor everywhere except insert mode
 vim.opt.guicursor = { "i:ver2" }
-vim.opt.nu = true
+-- vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.tabstop = 4
