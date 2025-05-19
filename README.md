@@ -2,6 +2,7 @@
 
 Cette repo contient ma configuration pour [Neovim](https://neovim.io/).
 
+Nécessite `Neovim >= 0.11`
 ## TL;DR
 Cette config contient notamment
 - Quelques [raccourcis](#raccourcis)
@@ -32,7 +33,35 @@ return {
 
 ## Raccourcis
 Normal mode : 
-- `
+- `<leader>rp` : Save and run current file with Python3.
+- `gd` : Go to definition
+- `<leader>h` : See documentation of current element
+- `<leader>vd` : View diagnostics on current line
+- `<leader>vrr` : View references of current element
+- `<leader>r` : File-wide rename of current element
+
+Visual mode : 
+- `J` : Move all selected lines down
+- `K` : Move all selected lines up
 ## Support des langages
+L'équivalent des extensions de langage dans VSCode est le Language Server Protocol (LSP). Le fichier `lsp.lua` gère l'installation et la configuration de ces plugins. 
+
+Langages supportés actuellement
+- Lua : `lua_ls` (lsp et linter), stylua (formatter)
+- Python : `pyright` (lsp), `pylint` (linter) et `black` (formatter)
+- C : `clangd` (lsp, formatter et linter)
+- Javascript/Typescript : `ts_ls` (lsp et linter), `prettier` (formatter)
+
 ## Thème et apparence
+Le thème est [onedark](https://github.com/navarasu/onedark.nvim).
 ## Plugins
+- [Nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) : Explorateur de fichiers amélioré
+- [Copilot](https://github.com/navarasu/onedark.nvim) : Complétion et suggestion
+- [Telescope](https://github.com/nvim-telescope/telescope.nvim) : Recherche rapide dans tout le projet. Raccourcis :
+  - `<leader>pf` : Recherche dans les noms de fichiers
+  - `<leader>ps` : Recherche globale dans tout le projet
+- [Harpoon](https://github.com/ThePrimeagen/harpoon) : Quick switcher. Raccourcis
+  - `<leader>a` : Ajouter un fichier
+  - `<C-e>` : Ouvrir le Menu
+  - `<C-e>, <C-t>, <C-n>` : Ouvrir les fichiers 1, 2, 3 respectivement.
+- [Autopair](https://github.com/windwp/nvim-autopairs) : Gestion intelligente des parenthèses
