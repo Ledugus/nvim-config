@@ -1,3 +1,3 @@
-require("lua.remap")
-require("lua.set")
-require("lua.lazy")
+require("user.remap")
+require("user.set")
+require("user.lazy")
