@@ -39,11 +39,11 @@ return {
 					end, opts)
 					-- [d = diagnostic suivant
 					vim.keymap.set("n", "<leader>dj", function()
-						vim.diagnostic.goto_next()
+						vim.diagnostic.jump({ count = 1 })
 					end, opts)
 					-- ]d = diagnostic précédent
 					vim.keymap.set("n", "<leader>dk", function()
-						vim.diagnostic.goto_prev()
+						vim.diagnostic.jump({ count = -1 })
 					end, opts)
 					-- Aller aux références
 					vim.keymap.set("n", "<leader>vrr", function()
@@ -69,7 +69,7 @@ return {
 		config = function()
 			require("mason").setup({})
 			require("mason-lspconfig").setup({
-				ensure_installed = { "pyright", "lua_ls", "clangd", "ts_ls", "svelte", "tinymist" },
+				ensure_installed = { "pylsp", "lua_ls", "clangd", "ts_ls", "svelte", "tinymist" },
 				handlers = {
 					-- Handler par défaut
 					function(server_name)
@@ -81,12 +81,21 @@ return {
 							cmd = { "clangd", "--fallback-style=webkit" },
 						})
 					end,
-					pyright = function()
-						require("lspconfig").pyright.setup({
+					pylsp = function()
+						require("lspconfig").pylsp.setup({
 							settings = {
-								python = {
-									analysis = {
-										typeCheckingMode = "basic",
+								pylsp = {
+									plugins = {
+										pylint = {
+											enabled = false,
+										},
+										flake8 = {
+											enabled = false,
+											maxLineLength = 100,
+										},
+										pyflakes = {
+											enabled = false,
+										},
 									},
 								},
 							},
