@@ -56,7 +56,7 @@ return {
 			local file_name = vim.fn.expand("%:t:r")
 			local video_path = dir_name .. "/media/videos/" .. file_name .. "/480p15/" .. class_name .. ".mp4"
 
-			local cmd = string.format("uv run manim -pql '%s' '%s' && xdg-open '%s'", file_path, class_name, video_path)
+			local cmd = string.format("uv run manim -ql '%s' '%s' && xdg-open '%s'", file_path, class_name, video_path)
 
 			require("toggleterm.terminal").Terminal:new({ cmd = cmd }):toggle()
 		end, { noremap = false, silent = true })
