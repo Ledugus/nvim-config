@@ -60,6 +60,19 @@ return {
 					client.server_capabilities.semanticTokensProvider = nil
 				end,
 			})
+			vim.api.nvim_create_autocmd("LspAttach", {
+				desc = "LSP : Disable hover capabilities for ruff",
+				group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),
+				callback = function(event)
+					local client = vim.lsp.get_client_by_id(event.data.client_id)
+					if client == nil then
+						return
+					end
+					if client.name == "ruff" then
+						client.server_capabilities.hoverProvider = false
+					end
+				end,
+			})
 		end,
 	},
 	{ "williamboman/mason.nvim" },
@@ -69,7 +82,7 @@ return {
 		config = function()
 			require("mason").setup({})
 			require("mason-lspconfig").setup({
-				ensure_installed = { "pylsp", "lua_ls", "clangd", "ts_ls", "svelte", "tinymist" },
+				ensure_installed = { "pyright", "ruff", "lua_ls", "clangd", "ts_ls", "svelte", "tinymist" },
 				handlers = {
 					-- Handler par défaut
 					function(server_name)
@@ -81,21 +94,17 @@ return {
 							cmd = { "clangd", "--fallback-style=webkit" },
 						})
 					end,
-					pylsp = function()
-						require("lspconfig").pylsp.setup({
+					pyright = function()
+						require("lspconfig").pyright.setup({
 							settings = {
-								pylsp = {
-									plugins = {
-										pylint = {
-											enabled = false,
-										},
-										flake8 = {
-											enabled = false,
-											maxLineLength = 100,
-										},
-										pyflakes = {
-											enabled = false,
-										},
+								pyright = {
+									-- Using Ruff's import organizer
+									disableOrganizeImports = true,
+								},
+								python = {
+									analysis = {
+										-- Ignore all files for analysis to exclusively use Ruff for linting
+										ignore = { "*" },
 									},
 								},
 							},

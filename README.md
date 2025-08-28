@@ -34,6 +34,7 @@ return {
 ## Raccourcis
 Normal mode : 
 - `<leader>rp` : Save and run current file with Python3.
+- `<leader>mm` : Save file and compile current class with manim.
 - `gd` : Go to definition
 - `<leader>h` : See documentation of current element
 - `<leader>vd` : View diagnostics on current line
@@ -48,12 +49,15 @@ L'équivalent des extensions de langage dans VSCode est le Language Server Proto
 
 Langages supportés actuellement
 - Lua : `lua_ls` (lsp et linter), stylua (formatter)
-- Python : `pyright` (lsp), `pylint` (linter) et `black` (formatter)
+- Python : `pyright` (lsp), `ruff` (lsp & linter) et `black` (formatter)
 - C : `clangd` (lsp, formatter et linter)
 - Javascript/Typescript : `ts_ls` (lsp et linter), `prettier` (formatter)
+- Typst : `tinymist` (lsp, formatter et linter)
 
 ## Thème et apparence
-Le thème est [onedark](https://github.com/navarasu/onedark.nvim).
+Le thème est [onedark](https://github.com/navarasu/onedark.nvim). 
+
+La barre d'état est gérée par le plugin [LuaLine](https://github.com/nvim-lualine/lualine.nvim).
 ## Plugins
 - [Nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) : Explorateur de fichiers amélioré
 - [Copilot](https://github.com/navarasu/onedark.nvim) : Complétion et suggestion
@@ -65,3 +69,4 @@ Le thème est [onedark](https://github.com/navarasu/onedark.nvim).
   - `<C-e>` : Ouvrir le Menu
   - `<C-e>, <C-t>, <C-n>` : Ouvrir les fichiers 1, 2, 3 respectivement.
 - [Autopair](https://github.com/windwp/nvim-autopairs) : Gestion intelligente des parenthèses
+- [ToggleTerm](https://github.com/akinsho/toggleterm.nvim) : Fenêtre popup de terminal
